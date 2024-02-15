@@ -1,0 +1,30 @@
+<div class="main-nav web">
+	<div class="container">
+		<div class="main-nav__top">
+			<div class="main-nav__header">
+				<p class="h4-text">Logo</p>
+				<a class="mobile--toggle"></a>
+			</div>
+			{% if menu.items %}
+				<div class="main-nav__links">
+					<ul class="main-nav-ul">
+						{% for item in menu.items %}
+							<li class="{% if item.current %}active{% endif %} main-nav--item">
+								<a title=""{{ item.name}} target="{{ item.target }}" href="{{ item.link }}" class="main-nav__link {{ item.children ? '--sub' : '' }}">{{ item.title }}</a>
+								{% if item.children %}
+									<ul class="main-nav__sub">
+										{% for child in item.children %}
+											<li>
+												<a title="{{ child.title }}" target="{{ child.target }}" href="{{ child.link }}" class="main-nav__link">{{ child.title }}</a>
+											</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</div>

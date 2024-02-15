@@ -1,0 +1,80 @@
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://composer.admincolumns.com"
+    },
+    {
+      "type": "composer",
+      "url": "https://pivvenit.github.io/acf-composer-bridge/composer/v3/wordpress-plugin/"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "junaidbhura/gravityforms",
+        "version": "dev-main",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://www.gravityforms.com/"
+        },
+        "require": {
+          "junaidbhura/composer-wp-pro-plugins": "*"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "junaidbhura/gravityformsrecaptcha",
+        "version": "1.1",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://www.gravityforms.com/"
+        },
+        "require": {
+          "junaidbhura/composer-wp-pro-plugins": "*"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "johnpbloch/wordpress-core": "*",
+    "johnpbloch/wordpress-core-installer": "*",
+    "wpackagist-plugin/better-wp-security": "*",
+    "wpackagist-plugin/wordpress-seo": "*",
+    "wpackagist-plugin/duplicate-post": "*",
+    "wpackagist-plugin/classic-editor": "*",
+    "wpackagist-plugin/mailgun": "*",
+    "wpackagist-plugin/timber-library": "*",
+    "wpackagist-plugin/easy-svg": "*",
+    "wpackagist-plugin/maintenance":"*",
+    "wpackagist-plugin/webp-converter-for-media": "*",
+    "admin-columns/admin-columns-pro": "*",
+    "advanced-custom-fields/advanced-custom-fields-pro": "*",
+    "pivvenit/acf-pro-installer": "*",
+    "otgs/installer": "*",
+    "vlucas/phpdotenv": "5.4.x-dev",
+    "junaidbhura/gravityforms": "dev-main",
+    "junaidbhura/gravityformsrecaptcha": "*"
+  },
+  "extra": {
+    "wordpress-install-dir": "wp"
+  },
+  "config": {
+    "allow-plugins": {
+      "ffraenz/private-composer-installer": true,
+      "pivvenit/acf-pro-installer": true,
+      "johnpbloch/wordpress-core-installer": true,
+      "composer/installers": true,
+      "junaidbhura/composer-wp-pro-plugins": true
+    }
+  },
+  "minimum-stability": "dev"
+}

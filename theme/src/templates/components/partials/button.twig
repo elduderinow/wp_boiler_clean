@@ -1,0 +1,9 @@
+{% if type == 'submit' %}
+	<div class="button-wrapper">
+		<button type="submit" alt="{{alt}}" class="btn btn--{{ buttonType }} {{icon}}">{{ text }}</button>
+	</div>
+{% else %}
+	<div class="button-wrapper">
+		<a href="{{url}}" alt="{{alt}}" class="btn btn--{{ buttonType }} {{icon}}">{{ text }}</a>
+	</div>
+{% endif %}

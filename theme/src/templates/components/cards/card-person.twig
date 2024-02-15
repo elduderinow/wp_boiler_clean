@@ -1,0 +1,11 @@
+<p><strong>{{ person.title }}</strong></p>
+<p>{{ person.department }}</p>
+<p>{{ person.function }}</p>
+<p>{{ person.email }}</p>
+<p>{{ person.phone }}</p>
+<p>{{ person.mobile }}</p>
+<p>
+    {% if (person.avatar) %}
+        {% include './partials/components/picture.twig' with { 'picture': person.avatar } %}
+    {% endif %}
+</p>

@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+{% block content %}
+	<div class="page-wrapper">
+		{% if page.paragraphs %}
+			<section class="paragraphs">
+				{% for paragraph in page.paragraphs %}
+					{% include './paragraphs/paragraphs.twig' %}
+				{% endfor %}
+			</section>
+		{% endif %}
+
+		{% block footer %}
+			{% include './components/general/footer.twig' %}
+		{% endblock %}
+	</div>
+{% endblock %}

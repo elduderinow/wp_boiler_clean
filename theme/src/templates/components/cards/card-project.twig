@@ -1,0 +1,7 @@
+<p>{{ project.title }} ({{ project.reference }})</p>
+<p>{{ project.intro }}</p>
+<section class="image">
+    {% if (project.image) %}
+        {% include './partials/components/picture.twig' with { 'picture': project.image } %}
+    {% endif %}
+</section>

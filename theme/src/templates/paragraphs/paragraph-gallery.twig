@@ -1,0 +1,7 @@
+{% if gallery %}
+    <div class="paragraph paragraph--gallery">
+        {% for picture in gallery %}
+            {# {% include './partials/paragraphs/paragraph-picture.twig' with {'picture': picture} %} #}
+        {% endfor %}
+    </div>
+{% endif %}

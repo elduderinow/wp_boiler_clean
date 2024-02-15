@@ -1,0 +1,23 @@
+<footer class="col-span-12 bg-gray-200">
+    <div class="container">
+        <div class="footer__bottom">
+            <div class="flex">
+                <div class="flex-col flex-col-xs--12">
+                    <ul class="footer__links">
+                        <li class="footer__links-item">
+                            <p class="text--white text--small">Copyright {{ "now"|date('Y') }} {{ site.name }}</p>
+                        </li>
+                       {% if gdpr_menu %}
+                           {% for item in gdpr_menu.items %}
+                        <li class="footer__links-item">
+                            <a class="link link--white link--no-underline" href="{{ item.link }}">{{ item.title }}</a>
+                        </li>
+                           {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <a href="" class="js-scroll-top scroll-trigger">scroll to top</a>
+        </div>
+    </div>
+</footer>

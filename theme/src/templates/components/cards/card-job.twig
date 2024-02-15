@@ -1,0 +1,4 @@
+<p>{{ job.title }} ({{ job.reference }})</p>
+{% if (job.applyLink is defined) %}
+    {% include './partials/components/link.twig' with {'link': job.applyLink, 'classnames': 'hyperlink'} %}
+{% endif %}

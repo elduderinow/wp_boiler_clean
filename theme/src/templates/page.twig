@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="container">
+        <div class="bg--white page-content">
+            <div class="container">
+                <div class="intro richtext">
+                    <div class="flex">
+                        <div class="flex-col flex-col-xs--12 flex-col-offset-xl-1 flex-col-xl--10">
+                            <div class="intro__content">
+                                <h2>
+                                   {{ page.intro }}
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="paragraphs">
+                <div class="container">
+                    <div class="flex">
+                        <div class="flex-col flex-col-xs--12 flex-col-offset-xl-1 flex-col-xl--10">
+                            {% for paragraph in page.paragraphs %}
+                                {% include './partials/paragraphs/paragraphs.twig' %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% block footer %}
+            {% include './partials/general/footer.twig' %}
+        {% endblock %}
+    </div>
+{% endblock %}

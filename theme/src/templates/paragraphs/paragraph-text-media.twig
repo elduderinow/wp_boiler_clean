@@ -1,0 +1,14 @@
+<div class="paragraph text-media--comp {% if image.displaySize %} {{image.displaySize == 'full_width' ? 'large' : size }} {% else %} {{size}} {% endif %} image-{{textPosition == 'textLeft' ? 'right' :  'left'}}">
+	<div class="grid grid-cols-12">
+		<div class="image slide--item col-span-12 md:col-span-6">
+			{% include './components/partials/media--comp.twig' with {image:image,video:video, placeholder:placeholderUrl, aspectRatio:aspectRatio, position:position} %}
+		</div>
+		<div class="text slide--item col-span-12 md:col-span-6">
+			<div class="text--inner richtext">
+				<div class="main--text">
+					{{text}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

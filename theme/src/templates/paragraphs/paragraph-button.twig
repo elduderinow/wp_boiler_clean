@@ -1,0 +1,5 @@
+{% if link %}
+    <div class="paragraph paragraph--button">
+        {% include './partials/components/link.twig' with {'link': link, 'classnames': 'btn btn--light'} %}
+    </div>
+{% endif %}

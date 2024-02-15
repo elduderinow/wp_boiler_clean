@@ -1,0 +1,6 @@
+<picture>
+    <source media="(max-width:600px)" srcset="{{ picture.sizes.medium }}">
+    <source media="(max-width:1199px)" srcset="{{ picture.sizes.large }}">
+    <source media="(min-width:1200px)" srcset="{{ picture.sizes.full_hd }}">
+    <img src="{{ picture.sizes.medium }}" alt="{{ picture.alt }}" />
+</picture>

@@ -1,0 +1,83 @@
+
+
+@mixin header-style {
+    font-family: "futura-pt", sans-serif;
+    font-weight: 700;
+}
+
+@mixin body-style {
+    // font-family: "futura-pt", sans-serif;
+    font-weight: 400;
+}
+
+@mixin h1-text {
+    @include header-style;
+    @include fluid-type(38px, 60px);
+}
+
+@mixin h2-text {
+    @include header-style;
+    @include fluid-type(32px, 50px);
+}
+
+@mixin h3-text {
+    @include header-style;
+    @include fluid-type(26px, 40px);
+}
+
+@mixin h4-text {
+    @include header-style;
+    @include fluid-type(22px, 34px);
+}
+
+@mixin h5-text {
+    @include header-style;
+    @include fluid-type(20px, 26px);
+}
+
+@mixin h6-text {
+    @include header-style;
+    @include fluid-type(16px, 20px);
+}
+
+@mixin p-text {
+    @include body-style;
+    font-size: 16px;
+    line-height: 26px;
+    color: get-gray-color(base);
+}
+
+h1,
+.h1-text {
+    @include h1-text;
+}
+
+h2,
+.h2-text {
+    @include h2-text;
+}
+
+h3,
+.h3-text {
+    @include h3-text;
+}
+
+h4,
+.h4-text {
+    @include h4-text;
+}
+
+h5,
+.h5-text {
+    @include h5-text;
+}
+
+h6,
+.h6-text {
+    @include h6-text;
+}
+
+p,
+.p-text {
+    @include p-text;
+}

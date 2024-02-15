@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nl">
+    <head>
+        {% include 'head.twig' %}
+        {{ function('wp_head') }}
+    </head>
+    <body>
+        {%  if (gtmActive == true) %}
+            <!-- Google Tag Manager (noscript) -->
+            <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ gtmKey }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+            <!-- End Google Tag Manager (noscript) -->
+        {% endif %}
+        <div class="wrapper" id="wrapper">
+            {% include './components/general/main-nav.twig' %}
+            <main id="main">
+                <div id="route-wrapper" data-router-wrapper>
+                    {% block content %}
+                        {% block footer %}
+                        {% endblock %}
+                    {% endblock %}
+                </div>
+
+            </main>
+        </div>
+        {{ function('wp_footer') }}
+    </body>
+</html>

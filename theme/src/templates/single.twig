@@ -1,0 +1,38 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <section class="hero">
+        <h1>{{ article.title }}</h1>
+        {% if article.subtitle %}
+            <h2>{{ article.subtitle }}</h2>
+        {% endif %}
+    </section>
+
+    <section class="intro">
+        {{ article.intro }}
+    </section>
+
+    <section class="image">
+        {% if (article.image) %}
+            {% include './partials/components/picture.twig' with { 'picture': article.image } %}
+        {% endif %}
+    </section>
+
+    <section class="paragraphs">
+        {% if article.paragraphs %}
+            {% for paragraph in article.paragraphs %}
+                {% include './partials/paragraphs/paragraphs.twig' %}
+            {% endfor %}
+        {% endif %}
+    </section>
+
+    {% block footer %}
+        {% include './partials/general/footer.twig' %}
+    {% endblock %}
+
+    <hr/>
+    <pre class="dump">
+    {{ dump(article.paragraphs) }}
+    </pre>
+    <hr/>
+{% endblock %}
