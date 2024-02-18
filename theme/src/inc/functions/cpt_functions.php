@@ -1,7 +1,8 @@
 <?php
 //TODO: Enable the correct cpt's & taxonomies for your project
 
-//add_action( 'init', 'cpt_event', 1 );
+add_action( 'init', 'cpt_event', 1 );
+add_action( 'init', 'cpt_arrangements', 1 );
 //add_action( 'init', 'cpt_location', 1 );
 //add_action( 'init', 'cpt_person', 1 );
 //add_action( 'init', 'cpt_company', 1 );
@@ -14,7 +15,52 @@
 //add_action( 'init', 'tax_job_regime', 0 );
 //add_action( 'init', 'tax_faq_topic', 0 );
 
+//init taxonomies
+add_action( 'init', 'tax_arrangement', 0 );
+
+
 /* CUSTOM POSTTYPES */
+function cpt_arrangements() {
+    $labels = array(
+        'name'                => _x( 'Arrangement', 'Post Type General Name', 'vv-theme-01' ),
+        'singular_name'       => _x( 'Arrangement', 'Post Type Singular Name', 'vv-theme-01' ),
+        'menu_name'           => __( 'Arrangementen', 'vv-theme-01' ),
+        'parent_item_colon'   => __( 'Hoofditem:', 'vv-theme-01' ),
+        'all_items'           => __( 'Alle Arrangementen', 'vv-theme-01' ),
+        'view_item'           => __( 'Bekijk arrangement', 'vv-theme-01' ),
+        'add_new_item'        => __( 'Nieuw arrangement', 'vv-theme-01' ),
+        'add_new'             => __( 'Voeg arrangement toe', 'vv-theme-01' ),
+        'edit_item'           => __( 'Bewerk arrangement', 'vv-theme-01' ),
+        'update_item'         => __( 'Bewerk arrangement', 'vv-theme-01' ),
+        'search_items'        => __( 'Zoeken', 'vv-theme-01' ),
+        'not_found'           => __( 'Niet gevonden', 'vv-theme-01' ),
+        'not_found_in_trash'  => __( 'Niet gevonden in prullenbak', 'vv-theme-01' ),
+    );
+    $args = array(
+        'label'               => __( 'Arrangement', 'vv-theme-01' ),
+        'description'         => __( 'Arrangement', 'vv-theme-01' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title','thumbnail', 'editor', 'excerpt'),
+        'hierarchical'        => true,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 5,
+        'can_export'          => true,
+        'has_archive'         => __('Arrangementen', 'vv-theme-01'),
+        'menu_icon'   		  => 'dashicons-schedule',
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'page',
+        // 'rewrite' => array( 
+        //     'slug' => 'thermen/arrangementen', // use this slug instead of post type name
+        //     'with_front' => FALSE // if you have a permalink base such as /blog/ then setting this to false ensures your custom post type permalink structure will be /products/ instead of /blog/products/
+        // ),
+    );
+    register_post_type( 'arrangement', $args );
+}
 function cpt_event() {
     $labels = array(
         'name'                => _x( 'Event', 'Post Type General Name', 'vv-theme-01' ),
@@ -320,56 +366,72 @@ function cpt_project() {
 }
 
 /* CUSTOM TAXONOMIES */
-function tax_job_contract() {
+function tax_arrangement() {
     $labels = array(
-        'name'          => _x( 'Contract', 'taxonomy general name', 'vv-theme-01'),
-        'singular_name' => _x( 'Contract', 'taxonomy singular name', 'vv-theme-01'),
-        'menu_name'     => __( 'Contract', 'vv-theme-01'),
+        'name'          => _x( 'Types', 'taxonomy general name', 'katara'),
+        'singular_name' => _x( 'Type', 'taxonomy singular name', 'katara'),
+        'menu_name'     => __( 'Types', 'katara'),
     );
 
-    register_taxonomy( 'contract', ['job'], array(
+    register_taxonomy( 'type-arrangement', ['arrangement'], array(
         'hierarchical'      => true,
         'labels'            => $labels,
         'show_ui'           => true,
         'show_admin_column' => true,
         'query_var'         => true,
         'publicly_queryable'=> true,
-        'rewrite'           => array( 'slug' => 'contract' ),
     ) );
 }
+// function tax_job_contract() {
+//     $labels = array(
+//         'name'          => _x( 'Contract', 'taxonomy general name', 'vv-theme-01'),
+//         'singular_name' => _x( 'Contract', 'taxonomy singular name', 'vv-theme-01'),
+//         'menu_name'     => __( 'Contract', 'vv-theme-01'),
+//     );
 
-function tax_job_regime() {
-    $labels = array(
-        'name'          => _x( 'Regime', 'taxonomy general name', 'vv-theme-01'),
-        'singular_name' => _x( 'Regime', 'taxonomy singular name', 'vv-theme-01'),
-        'menu_name'     => __( 'Regime', 'vv-theme-01'),
-    );
+//     register_taxonomy( 'contract', ['job'], array(
+//         'hierarchical'      => true,
+//         'labels'            => $labels,
+//         'show_ui'           => true,
+//         'show_admin_column' => true,
+//         'query_var'         => true,
+//         'publicly_queryable'=> true,
+//         'rewrite'           => array( 'slug' => 'contract' ),
+//     ) );
+// }
 
-    register_taxonomy( 'regime', ['job'], array(
-        'hierarchical'      => true,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        'publicly_queryable'=> true,
-        'rewrite'           => array( 'slug' => 'regime' ),
-    ) );
-}
+// function tax_job_regime() {
+//     $labels = array(
+//         'name'          => _x( 'Regime', 'taxonomy general name', 'vv-theme-01'),
+//         'singular_name' => _x( 'Regime', 'taxonomy singular name', 'vv-theme-01'),
+//         'menu_name'     => __( 'Regime', 'vv-theme-01'),
+//     );
 
-function tax_faq_topic() {
-    $labels = array(
-        'name'          => _x( 'Topic', 'taxonomy general name', 'vv-theme-01'),
-        'singular_name' => _x( 'Topic', 'taxonomy singular name', 'vv-theme-01'),
-        'menu_name'     => __( 'Topic', 'vv-theme-01'),
-    );
+//     register_taxonomy( 'regime', ['job'], array(
+//         'hierarchical'      => true,
+//         'labels'            => $labels,
+//         'show_ui'           => true,
+//         'show_admin_column' => true,
+//         'query_var'         => true,
+//         'publicly_queryable'=> true,
+//         'rewrite'           => array( 'slug' => 'regime' ),
+//     ) );
+// }
 
-    register_taxonomy( 'topic', ['faq'], array(
-        'hierarchical'      => true,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        'publicly_queryable'=> true,
-        'rewrite'           => array( 'slug' => 'topic' ),
-    ) );
-}
+// function tax_faq_topic() {
+//     $labels = array(
+//         'name'          => _x( 'Topic', 'taxonomy general name', 'vv-theme-01'),
+//         'singular_name' => _x( 'Topic', 'taxonomy singular name', 'vv-theme-01'),
+//         'menu_name'     => __( 'Topic', 'vv-theme-01'),
+//     );
+
+//     register_taxonomy( 'topic', ['faq'], array(
+//         'hierarchical'      => true,
+//         'labels'            => $labels,
+//         'show_ui'           => true,
+//         'show_admin_column' => true,
+//         'query_var'         => true,
+//         'publicly_queryable'=> true,
+//         'rewrite'           => array( 'slug' => 'topic' ),
+//     ) );
+// }

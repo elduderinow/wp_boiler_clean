@@ -1,7 +1,7 @@
 
 const
     getArg = require('./lib/getArg'),
-    destFolder = getArg('--build') ? '../web/wp-content/themes/starterkit' : '../web/wp-content/themes/starterkit',
+    destFolder = getArg('--build') ? '../web/wp-content/themes/katara-wp' : '../web/wp-content/themes/katara-wp',
     env = getArg('--build') ? 'production' : 'development';
 
 module.exports = {
@@ -13,8 +13,8 @@ module.exports = {
 
     'tasks': {
         'browserSync': {
-            'proxy': 'http://starterkit.local',
-            'host': 'starterkit.local',
+            'proxy': 'http://katara-wp.local',
+            'host': 'katara-wp.local',
             'open': 'external'
         },
         'static': {},

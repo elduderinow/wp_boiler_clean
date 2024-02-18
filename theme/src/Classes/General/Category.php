@@ -12,6 +12,7 @@ class Category
     private $excerpt;
     private $link;
     private $image;
+    private $taxonomy;
 
 
     /**
@@ -24,6 +25,7 @@ class Category
         $this->setSlug($term->slug);
         $this->setParent($term->parent);
         $this->setDescription($term->description);
+        $this->setTaxonomy($term->taxonomy);
         $this->setExcerpt();
         $this->setLink($term);
     }
@@ -147,6 +149,15 @@ class Category
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+    public function setTaxonomy($taxonomy)
+    {
+        $this->taxonomy = $taxonomy;
+    }
+
+    public function getTaxonomy()
+    {
+        return $this->taxonomy;
     }
     /**
      * setExcerpt

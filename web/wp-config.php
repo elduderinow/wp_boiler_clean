@@ -1,15 +1,16 @@
 <?php
 
+// BEGIN iThemes Security - Do not modify or remove this line
+// iThemes Security Config Details: 2
+define( 'DISALLOW_FILE_EDIT', true ); // Disable File Editor - Security > Settings > WordPress Tweaks > File Editor
+// END iThemes Security - Do not modify or remove this line
+
 /** @desc this loads the composer autoload file */
 require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 /** @desc this instantiates Dotenv and passes in our path to .env */
 $dotenv = Dotenv\Dotenv::createImmutable(dirname(__FILE__));
 $dotenv->load();
 
-// BEGIN iThemes Security - Do not modify or remove this line
-// iThemes Security Config Details: 2
-define( 'DISALLOW_FILE_EDIT', true ); // Disable File Editor - Security > Settings > WordPress Tweaks > File Editor
-// END iThemes Security - Do not modify or remove this line
 define( 'ITSEC_ENCRYPTION_KEY', 'Xit2eFhqTENWQCM9d1VYO31WQWpva2A9STE1TnFhUntUQUMrJnlqK3k7XiNDLjw2XWBTTSNvRjtkLntkSmhhYw==' );
 define( 'ITSEC_NOTIFY_USE_CRON', true);
 
